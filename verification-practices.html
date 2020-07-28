@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 Verification Practices | GitHub Facts About the HDL Industry</title>
+  <meta name="description" content="Report: GitHub Facts About the HDL Industry." />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 Verification Practices | GitHub Facts About the HDL Industry" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Report: GitHub Facts About the HDL Industry." />
+  <meta name="github-repo" content="LarsAsplund/github-facts" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 Verification Practices | GitHub Facts About the HDL Industry" />
+  
+  <meta name="twitter:description" content="Report: GitHub Facts About the HDL Industry." />
+  
+
+<meta name="author" content="Lars Asplund" />
+<meta name="author" content="Unai Martinez-Corral" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="Rmd/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li style="text-align: center;"><a href="./index.html"><b>GitHub Facts About the HDL Industry</b></a></li>
+<li style="text-align: center;"><a title="LarsAsplund/github-facts" href="https://github.com/LarsAsplund/github-facts"><img src="https://img.shields.io/badge/LarsAsplund-github--facts-gray.svg?longCache=true&style=flat-square&logo=github&labelColor=bb642a"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> What Can GitHub Tell Us About the HDL Industry?</a></li>
+<li class="chapter" data-level="2" data-path="verification-practices.html"><a href="verification-practices.html"><i class="fa fa-check"></i><b>2</b> Verification Practices</a><ul>
+<li class="chapter" data-level="2.1" data-path="verification-practices.html"><a href="verification-practices.html#repository-analysis"><i class="fa fa-check"></i><b>2.1</b> Repository Analysis</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="verification-practices.html"><a href="verification-practices.html#how-to"><i class="fa fa-check"></i><b>2.1.1</b> How-To</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li style="text-align: center;"><a title="Discuss at GitHub Issues" href="https://github.com/LarsAsplund/github-facts/issues"><img src="https://img.shields.io/github/issues-raw/LarsAsplund/github-facts?longCache=true&style=flat-square&logo=github&label=Discuss%20at%20GitHub"></a></li>
+<li style="text-align: center;"><a title="Join the chat at https://gitter.im/VUnit/vunit" href="https://gitter.im/VUnit/vunit"><img src="https://img.shields.io/badge/Join%20chat-at%20gitter-4db797.svg?longCache=true&style=flat-square&logo=gitter&logoColor=e8ecef"></a></li>
+<li style="text-align: center;"><a title="@VUnitFramework" href="https://www.twitter.com/VUnitFramework"><img src="https://img.shields.io/twitter/follow/VUnitFramework.svg?longCache=true&style=flat-square&color=1DA1F2&label=%40VUnitFramework&logo=twitter&logoColor=fff"></a></li>
+<li style="text-align: center; font-size: 12px;"><a href="https://github.com/rstudio/bookdown" target="blank"><i>Published with bookdown</i></a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">GitHub Facts About the HDL Industry</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="verification-practices" class="section level1">
+<h1><span class="header-section-number">2</span> Verification Practices</h1>
+<p>When it comes to statistical analysis of verification practices the <em>Wilson Research Group functional verification study</em> <span class="citation">[<a href="#ref-wilson14">2</a>]</span> <span class="citation">[<a href="#ref-wilson16">3</a>]</span> <span class="citation">[<a href="#ref-wilson18">4</a>]</span> has been the main source of information for many years. While this is a good effort towards highlighting interesting industry trends, it has a number of fundamental flaws:</p>
+<ul>
+<li>It includes some but not all of the <a href="https://star-history.t9t.io/#vunit/vunit&amp;osvvm/osvvm&amp;cocotb/cocotb&amp;UVVM/UVVM">most popular</a> open-source verification frameworks: VUnit <span class="citation">[<a href="#ref-vunit">1</a>]</span>, cocotb <span class="citation">[<a href="#ref-cocotb">5</a>]</span>, OSVVM <span class="citation">[<a href="#ref-osvvm">6</a>]</span> and UVVM <span class="citation">[<a href="#ref-uvvm">7</a>]</span>.</li>
+<li>Like any questionnaire-based study, it can’t measure what people not responding do (<a href="https://en.wikipedia.org/wiki/Participation_bias">non-response bias</a>). By the same token, it can only measure what respondents say they do but not what they actually do (<a href="https://en.wikipedia.org/wiki/Response_bias">response bias</a>).</li>
+<li>The data from the study in not open, only a selected set of views is. This means that conclusions outside of those views, for example regional differences, are difficult to draw.</li>
+</ul>
+<p>Keeping the data private is probably the only way to get companies to participate in such a survey and herein lays the problem. <strong>Facts</strong>, from a scientific point of view, are based on <strong>measurements</strong> that can be <strong>repeated</strong> and <strong>reviewed</strong>. This is why this repository comprises a study of open source projects in Github, and the code used to collect and present data is open to everyone. The benefits of this approach are:</p>
+<ul>
+<li>All open-source verification frameworks are present.</li>
+<li>There is no response bias, we see what people actually do. There can be other biases though, and we will get back to that.</li>
+<li>Anyone can review and comment <a href="https://github.com/LarsAsplund/github-facts/tree/main/py">the code</a> in public.</li>
+<li>Anyone can modify the code to create the views they are interested in.</li>
+</ul>
+<p>One of the views we are interested in, is the VHDL view. Most VUnit users are working with VHDL designs and verification, so that will be the focus of our first analysis.</p>
+
+<div id="repository-analysis" class="section level2">
+<h2><span class="header-section-number">2.1</span> Repository Analysis</h2>
+<p>When scanning GitHub for VHDL repositories, about <strong>1.9 million VHDL files</strong> were found in <strong>36000</strong> repositories. These repositories were initially analyzed for two things:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Are tests provided?</strong> This was a simple analysis just looking for VHDL files containing anything with <em>test</em> or <em>tb</em>.</li>
+<li><strong>Are any of the standard frameworks used (VUnit, UVM, UVVM, OSVVM and/or cocotb)?</strong> There have been discussions regarding the use of the term “standard(ized)”; so, to be clear, we mean <em>standard</em> as in well-established within the community, not as in standardized.</li>
+</ol>
+<p>The first analysis (see Figure <a href="verification-practices.html#fig:repositories">2.1</a>) revealed that roughly 44% of all repositories provide tests for their code and that the trend is declining.</p>
+<div class="figure" style="text-align: center"><span id="fig:repositories"></span>
+<img src="img/repositories_providing_tests.png" alt="Repositories providing tests." width="85%" />
+<p class="caption">
+Figure 2.1: Repositories providing tests.
+</p>
+</div>
+<p>Just looking at the file names is not optimal. <strong>6% of the repositories using a standard VHDL-based framework (VUnit, UVVM or OSVVM) do not use such a naming convention</strong>. However, it gives us a ballpark figure and a trend.</p>
+<p>The second analysis (see Figure <a href="verification-practices.html#fig:standard">2.2</a>) looked at the repositories providing tests and calculated the percentage of them that are using at least one of the standard verification frameworks. This trend is increasing rapidly over the last few years.</p>
+<div class="figure" style="text-align: center"><span id="fig:standard"></span>
+<img src="img/repositories_using_std_framework.png" alt="Repositories using standard frameworks." width="85%" />
+<p class="caption">
+Figure 2.2: Repositories using standard frameworks.
+</p>
+</div>
+<p>Look at the vertical axis though. While the trend is impressive, the absolute numbers are not. <strong>Only 3% of the repositories with tests created last year use a standard verification framework</strong>.</p>
+<p>This may come as a surprise. Many engineers working professionally with VHDL would probably say that verification is getting more and more important and that the majority is using a standard framework. Does this mean that GitHub data should be discarded as a relevent indicator for the professional world? There are at least three good reasons not to do so:</p>
+<ol style="list-style-type: decimal">
+<li>Our beliefs are based on our experiences, and our experiences are often based on our interactions with a limited group of people. This group of people may not be a good representation of the whole VHDL community, for example due to regional differences.</li>
+<li>The tendency to only accept our own beliefs is called <a href="https://en.wikipedia.org/wiki/Confirmation_bias">confirmation bias</a> and is deeply rooted in the human nature. We need to be aware that it exists and try to look beyond it.</li>
+<li>Not all GitHub repositories are developed by professionals, but some are. We cannot expect GitHub to be a perfect reflection of the professional world but we can expect signs from that world.</li>
+</ol>
+<p>In the following sections, we will dig deeper into the data to see what frameworks and combination of frameworks people are using. We will also compare those findings to the results presented in the <em>Wilson Research Group functional verification study</em> <span class="citation">[<a href="#ref-wilson18">4</a>]</span>.</p>
+<div id="how-to" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> How-To</h3>
+<p>The results presented so far were compiled using the scripts presented in the following sections.</p>
+<div id="github-search" class="section level4">
+<h4><span class="header-section-number">2.1.1.1</span> <code>github_search.py</code></h4>
+<p><a href="https://github.com/LarsAsplund/github-facts/tree/main/py/github_search.py"><code>github_search.py</code></a> is used to search GitHub for all repositories containing files of a specific language and matching a specified query. To find all repositories containing VHDL files one can specify <code>end</code> as the query since all VHDL files contain that key word. The result of the search is listed in text files stored in <code>result_directory</code>. A GitHub user name and a Github <a href="https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line">access token</a> must also be provided to access the GitHub API.</p>
+<pre class="console"><code>python github_search.py \
+  vhdl end result_directory \
+  YourGitHubUser your_github_access_token</code></pre>
+<p>The GitHub API has a number of restriction on searches. One is that you cannot get the full result of the search if the result contains more than 1000 files. To handle that, every search is further restricted by the script to only target files in a limited size range. First files between 1 - n bytes are searched where n is the largest number resulting in less than 1000 files, then files in a range starting with n + 1 bytes are searched and so on until the maximum searchable file size of 384 kB has been included. The accumulated search result after every such increment is stored in a separate file in <code>result_directory</code> and only the last produced file contains the full result.</p>
+<p>Occasionally there are more than 1000 found VHDL files of a single size, for example 264 bytes. In these cases some results are lost but most likely the repositories containing those missing files have other VHDL files caught in another search increment; so this will not have a significant effect on the overall statistics.</p>
+<p>The GitHub API also has rate limitations, which means that searches with many results take a long time to complete. Searching for all VHDL files takes days but the more limited searches for specific verification frameworks that we will use later can complete in minutes. If you interrupt a longer search and restart it later <code>github_search.py</code> will look at the intermediate result files in <code>result_directory</code> and continue from where it was interrupted.</p>
+<p>The result from the latest search for all VHDL files is found in <a href="https://github.com/LarsAsplund/github-facts/tree/main/all_vhdl_repos.txt"><code>all_vhdl_repos.txt</code></a></p>
+</div>
+<div id="github_clone.py" class="section level4">
+<h4><span class="header-section-number">2.1.1.2</span> <code>github_clone.py</code></h4>
+<p><a href="https://github.com/LarsAsplund/github-facts/tree/main/py/github_clone.py"><code>github_clone.py</code></a> makes a clone of all repositories listed in a file such as those produced by <code>github_search.py</code> (<a href="verification-practices.html#github-search">2.1.1.1</a>). The clone is sparse and only contains VHDL, SystemVerilog and Python files, which are the ones used for this study. The sparse clone is also stripped from its <code>.git</code> directory, and zipped to save storage space. The script also stores some basic information about the repository.</p>
+<p>A call to the script looks like this:</p>
+<pre class="console"><code>python github_clone.py \
+  repository_list result_directory \
+  YourGitHubUser your_github_access_token</code></pre>
+<p>If <code>repository_list</code> contains a repository <code>foo/bar</code>, the script will create a directory <code>foo</code> under <code>result_directory</code> and in that directory the zipped repository as <code>bar.zip</code>. The basic repository information is stored in a JSON file named <code>bar.basic.1.json</code>.</p>
+<p>Cloning all VHDL repositories from GitHub takes several days and requires about 180 GB of storage. Due to that size, it has not been possible to share the data. Anyone interested in analyzing those repositories needs to recreate the data locally, using this script and the <a href="https://github.com/LarsAsplund/github-facts/tree/main/all_vhdl_repos.txt">all_vhdl_repos.txt</a> repository list.</p>
+</div>
+<div id="analyze-test-strategy" class="section level4">
+<h4><span class="header-section-number">2.1.1.3</span> <code>analyze_test_strategy.py</code></h4>
+<p><a href="https://github.com/LarsAsplund/github-facts/tree/main/py/analyze_test_strategy.py"><code>analyze_test_strategy.py</code></a> analyzes the cloned repositories and generates the statistics presented in this work. The initial search for repositories using any of the standard frameworks is automatic but also produces a number of false positives that must be removed manually:</p>
+<ul>
+<li>A repository with both VHDL and (System)Verilog files that is also using UVM or cocotb may not use these frameworks to verify the VHDL code. VUnit can also be used for (System)Verilog verification but the search script can distinguish and ignore such repositories to avoid false positives.</li>
+<li>Sometimes the main design being verified is based on (System)Verilog but it also includes third party IPs written in VHDL. This is considered a false positive since the IPs are not the target for the verification and the design language of choice is not VHDL.</li>
+<li>Some repositories have testbenches based on a standard framework but the purpose is not to verify VHDL code but rather to use the code for testing an EDA tool being developed. A parser for example.</li>
+<li>This study is focused on the users of the frameworks, not the developers. The repositories hosting the frameworks and copies of these repositories have been excluded.</li>
+</ul>
+<p>The false positives are listed in <a href="https://github.com/LarsAsplund/github-facts/tree/main/fp_repos.json"><code>fp_repos.json</code></a>.</p>
+<p>The script will produce a JSON file for each analyzed repository (<code>repo_name.test.2.json</code>) and also a summary JSON file. The name of that file is given in the call to the script</p>
+<pre class="console"><code>python analyze_test_strategy.py \
+  path/to/directory/with/cloned/repositories \
+  path/to/analysis_summary.json \
+  --fp fp_repos.json</code></pre>
+</div>
+<div id="visualize_test_strategy.py" class="section level4">
+<h4><span class="header-section-number">2.1.1.4</span> <code>visualize_test_strategy.py</code></h4>
+<p><a href="https://github.com/LarsAsplund/github-facts/tree/main/py/visualize_test_strategy.py"><code>visualize_test_strategy.py</code></a> creates the figures used in this post from the results generated by <code>analyze_test_strategy.py</code> (<a href="verification-practices.html#analyze-test-strategy">2.1.1.3</a>). The figures are saved to the output directory given in the call.</p>
+<pre class="console"><code>python visualize_test_strategy.py \
+  path/to/analysis_summary.json \
+  path/to/output/directory</code></pre>
+
+</div>
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-vunit">
+<p>[1] L. Asplund, O. Kraigher, and contributors, “VUnit: a unit testing framework for VHDL/SystemVerilog,” Sep. 2014. <a href="http://vunit.github.io/">http://vunit.github.io/</a>.</p>
+</div>
+<div id="ref-wilson14">
+<p>[2] Wilson Research Group, “Functional Verification Study,” Jan. 2015. <a href="https://blogs.mentor.com/verificationhorizons/blog/2015/01/21/prologue-the-2014-wilson-research-group-functional-verification-study/">https://blogs.mentor.com/verificationhorizons/blog/2015/01/21/prologue-the-2014-wilson-research-group-functional-verification-study/</a>.</p>
+</div>
+<div id="ref-wilson16">
+<p>[3] Wilson Research Group, “Functional Verification Study,” Aug. 2016. <a href="https://blogs.mentor.com/verificationhorizons/blog/2016/08/08/prologue-the-2016-wilson-research-group-functional-verification-study/">https://blogs.mentor.com/verificationhorizons/blog/2016/08/08/prologue-the-2016-wilson-research-group-functional-verification-study/</a>.</p>
+</div>
+<div id="ref-wilson18">
+<p>[4] Wilson Research Group, “Functional Verification Study,” Nov. 2018. <a href="https://blogs.mentor.com/verificationhorizons/blog/2018/11/14/prologue-the-2018-wilson-research-group-functional-verification-study/">https://blogs.mentor.com/verificationhorizons/blog/2018/11/14/prologue-the-2018-wilson-research-group-functional-verification-study/</a>.</p>
+</div>
+<div id="ref-cocotb">
+<p>[5] C. Higgs, S. Hodgson, and contributors, “Coroutine Cosimulation TestBench (cocotb),” Jun. 2013. <a href="https://github.com/cocotb/cocotb">https://github.com/cocotb/cocotb</a>.</p>
+</div>
+<div id="ref-osvvm">
+<p>[6] J. Lewis and contributors, “Open Source VHDL Verification Methodology (OSVVM),” May 2013. <a href="https://osvvm.org/">https://osvvm.org/</a>.</p>
+</div>
+<div id="ref-uvvm">
+<p>[7] E. Tallaksen and contributors, “Universal VHDL Verification Methodology (UVVM),” Sep. 2013. <a href="https://uvvm.org/">https://uvvm.org/</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["twitter", "linkedin", "facebook"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/LarsAsplund/github-facts/edit/main/bookdown/02-00-verification.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": "https://github.com/LarsAsplund/github-facts/commits/main/bookdown/02-00-verification.Rmd",
+"text": null
+},
+"view": {
+"link": "https://github.com/LarsAsplund/github-facts/blob/main/bookdown/02-00-verification.Rmd",
+"text": null
+},
+"download": [["github-facts.pdf", "PDF"], ["github-facts.epub", "EPUB"]],
+"toc": {
+"collapse": "none"
+},
+"info": false
+});
+});
+</script>
+
+</body>
+
+</html>
